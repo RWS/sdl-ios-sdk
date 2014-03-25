@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'
   
-  s.source       = { :git => "https//github.com/sdl/sdl-ios-sdk.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/sdl/sdl-ios-sdk.git", :tag => "0.1.0" }
   s.source_files  = 'SDLKit/**/*.{h,m}'
   s.public_header_files = 'SDLKit/**/*.h'
 
