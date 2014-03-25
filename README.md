@@ -10,9 +10,12 @@ your iOS app.
 
 - [Get an SDL Language Cloud FREE Api Key](https://languagecloud.sdl.com/translation-api/sign-up)
 
-#### Download the Sample App
+#### Install vis CocoaPods
 
-- Get the code and run the sample app
+```ruby
+platform :ios, '7.0'
+pod "SDL-iOS-SDK", "~> 0.1.0"
+```
 
 #### Setup your API Key in the Sample App
 
