@@ -6,21 +6,59 @@ your iOS app.
 
 ### Getting Started
 
-#### Get Your API Key
+#### Get Your SDL Language Cloud API Key
 
-- [Get an SDL Language Cloud FREE Api Key](https://languagecloud.sdl.com/translation-api/sign-up)
+- [Sign Up Here] (https://languagecloud.sdl.com/translation-api/sign-up) to get a Free API Key
 
-#### Install vis CocoaPods
+#### Run the Sample app
 
+- Open the SDL.xcworkspace
+- Run the SDLExampleApp application
+- You should be getting and error that prompts you to setup your API key 
+- Setup your key in the SDLExampleApp.m file
+- Run the Sample app and you should now see a successful translation in your Console view
+```ruby
+2014-03-25 20:31:57.568 SDL[47320:a0b] Translation: Bonjour
+```
+- Congrats, you just performed your first translation!
+
+### Add the SDL SDK to your iOS app
+
+#### Add via CocoaPods
 ```ruby
 platform :ios, '7.0'
 pod "SDL-iOS-SDK", "~> 0.1.0"
 ```
 
-#### Setup your API Key in the Sample App
+####  Import the SDK into your code
 
-- When you run the app you should get an error
-- Follow the instructions to setup your API key in the sample app
+```ruby
+#import "SDL.h"
+```
+
+#### Setup your API Key once
+
+```ruby
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+   [[SDL languageCloud] setup:@"<your api key>"]
+   ...
+}
+```
+
+#### Perform a text translation
+
+```ruby
+ [[SDL languageCloud] translateText:@"Good Morning" from:[NSLocale localeWithLocaleIdentifier:@"en"] to:[NSLocale localeWithLocaleIdentifier:@"fr"] success:^(NSString* translation)
+    {
+        NSLog(@"Successful Translation: %@", translation);
+    }
+    failure:^(NSString* errorMessage)
+    {
+        NSLog(@"Error: %@", errorMessage);
+    }
+];
+```
 
 ### License
 
